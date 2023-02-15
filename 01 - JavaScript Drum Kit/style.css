@@ -1,6 +1,6 @@
 html {
   font-size: 10px;
-  background: url('./background.jpg') bottom center;
+  background: url('./background.png') bottom center;
   background-size: cover;
 }
 
@@ -8,13 +8,14 @@ body,html {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  min-height: 100vh;
 }
 
 .keys {
   display: flex;
   flex: 1;
   min-height: 100vh;
-  align-items: center;
+  align-items:end;
   justify-content: center;
 }
 
@@ -24,7 +25,7 @@ body,html {
   margin: 1rem;
   font-size: 1.5rem;
   padding: 1rem .5rem;
-  transition: all .07s ease;
+  transition: all .1s ease;
   width: 10rem;
   text-align: center;
   color: white;
@@ -33,9 +34,9 @@ body,html {
 }
 
 .playing {
-  transform: scale(1.1);
-  border-color: #ffc600;
-  box-shadow: 0 0 1rem #ffc600;
+  transform: scale(1.2);
+  border-color: #fff;
+  box-shadow: 0 0 1rem #fff;
 }
 
 kbd {
@@ -47,5 +48,27 @@ kbd {
   font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: .1rem;
-  color: #ffc600;
+  color: #fff;
+}
+
+
+
+@media (max-width: 640px) {
+  .keys {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    min-height: auto;
+    justify-items: center;
+  }
+
+  .key {
+    margin: 1rem;
+    font-size: .5rem;
+    width: 6rem;
+  }
+
+  kbd {
+    font-size: 3rem;
+  }
 }
