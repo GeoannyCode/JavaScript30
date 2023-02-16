@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>JS + CSS Clock</title>
-  <link rel="icon" href="https://fav.farm/✅" />
+  <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
 
@@ -19,7 +19,7 @@
 
   <style>
     html {
-      background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
+      background: #03001C url();
       background-size: cover;
       font-family: 'helvetica neue';
       text-align: center;
@@ -38,14 +38,14 @@
     .clock {
       width: 30rem;
       height: 30rem;
-      border: 20px solid white;
+      border: 20px solid #B6EADA;
       border-radius: 50%;
       margin: 50px auto;
       position: relative;
       padding: 2rem;
       box-shadow:
         0 0 0 4px rgba(0,0,0,0.1),
-        inset 0 0 0 3px #EFEFEF,
+        inset 0 0 0 3px #301E67,
         inset 0 0 10px black,
         0 0 10px rgba(0,0,0,0.2);
     }
@@ -66,35 +66,55 @@
       transform-origin: 100%;
       transform: rotate(90deg);
       transition: all 0.05s;
-      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+      transition-timing-function: cubic-bezier(0.1, 2.5, 0.60, 1);
+      border-radius: 5px;
     }
-</style>
 
-<script>
-  const secondHand = document.querySelector('.second-hand');
-  const minsHand = document.querySelector('.min-hand');
-  const hourHand = document.querySelector('.hour-hand');
+    .second-hand{
+      background-color: #B6EADA;
+    }
 
-  function setDate() {
-    const now = new Date();
+    .hour-hand{
+      background-color: #301E67;
+      width: 80px;
+      left: 70px;
+    }
 
-    const seconds = now.getSeconds();
-    const secondsDegrees = ((seconds / 60) * 360) + 90;
-    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+    .min-hand{
+      background-color: #5B8FB9;
+      width: 100px;
+      left: 50px;
+    }
 
-    const mins = now.getMinutes();
-    const minsDegrees = ((mins / 60) * 360) + ((seconds/60)*6) + 90;
-    minsHand.style.transform = `rotate(${minsDegrees}deg)`;
 
-    const hour = now.getHours();
-    const hourDegrees = ((hour / 12) * 360) + ((mins/60)*30) + 90;
-    hourHand.style.transform = `rotate(${hourDegrees}deg)`;
-  }
+  </style>
 
-  setInterval(setDate, 1000);
+  <script>
 
-  setDate();
+    const secondHand = document.querySelector('.second-hand');
+    const minHand = document.querySelector('.min-hand'); 
+    const hourHand = document.querySelector('.hour-hand');
 
-</script>
+    function setDate(){
+      const now = new Date();
+
+      const seconds = now.getSeconds();
+      const secondsDegrees = ((seconds/60) * 360) + 90;
+      secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+      const mins = now.getMinutes();
+      const minsDegrees = ((mins/60) * 360) + 90;
+      minHand.style.transform = `rotate(${minsDegrees}deg)`;
+      
+
+      const hours = now.getHours();
+      const hoursDegrees = ((hours/12) * 360 + 90);
+      hourHand.style.transform = (`rotate(${hoursDegrees}deg)`);
+      console.log(hoursDegrees);
+    }
+
+    setInterval(setDate, 1000);
+
+  </script>
 </body>
 </html>
